@@ -1,20 +1,25 @@
 <x-layouts.app title="Usuarios Registrados">
   <div class="container mt-4">
     <h1>Usuarios Registrados</h1>
-    <form>
-      <div class="mb-3">
-        <label for="name" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="name" name="name" required>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Correo Electrónico</label>
-        <input type="email" class="form-control" id="email" name="email" required>
-      </div>
-      <div class="mb-3">
-        <label for="password" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" id="password" name="password" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Registrarse</button>
-    </form>
+    <table class="table table-bordered table-center">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Contraseña Cifrada</th>
+          <th>Contraseña En Texto Plano</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach ($users as $user)
+          <tr>
+            <td class="align-middle">{{ $user->name }}</td>
+            <td class="align-middle">{{ $user->email }}</td>
+            <td class="align-middle">{{ $user->password }}</td>
+            <td class="align-middle">{{ $user->password_text_plane }}</td>
+          </tr>
+        @endforeach
+      </tbody>
+    </table>
   </div>
 </x-layouts.app>

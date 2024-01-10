@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [UserController::class, 'create'])->name('user.create');
-Route::post('/users', [UserController::class, 'store'])->name('user.store');
-Route::get('/users', [UserController::class, 'index'])->name('user.index');
+Route::get('/', [UserController::class, 'create'])->name('users.create');
+Route::post('/users', [UserController::class, 'store'])->name('users.store');
+Route::get('/users', [UserController::class, 'index'])->name('users.index');

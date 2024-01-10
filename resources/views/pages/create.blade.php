@@ -1,7 +1,14 @@
 <x-layouts.app title="Registrar Usuario">
   <div class="container mt-4">
+    @if (session("message"))
+      <div class="alert alert-success">
+        {{ session("message") }}
+      </div>
+    @endif
+    
     <h1>Registrar Usuario</h1>
-    <form>
+    <form action="{{ route("users.store") }}" method="post">
+      @csrf
       <div class="mb-3">
         <label for="name" class="form-label">Nombre</label>
         <input type="text" class="form-control" id="name" name="name" required>
